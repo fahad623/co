@@ -1,0 +1,8 @@
+data/
+*.csv
+*.csv.gz
+*.suo
+*.pyc
+*.zip
+*.vw
+*.cache
