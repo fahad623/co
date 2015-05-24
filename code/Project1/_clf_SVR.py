@@ -9,9 +9,9 @@ def make_best_classifier():
 
 def train_base_clf(pp):
     clf = make_best_classifier()
-    C_range = np.logspace(-4, 3, num=8)
+    C_range = np.logspace(-4, 1, num=6)
     #C_range = np.arange(0.01, 0.02, 0.01)
-    #param_grid = dict(C = C_range, kernel = ['linear', 'rbf'])
+    param_grid = dict(C = C_range, kernel = ['linear', 'rbf'])
     
     clf, bp, bs = cross_val.fit_clf(clf, pp.X_train, pp.Y_train, param_grid)
     return clf

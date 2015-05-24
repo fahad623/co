@@ -4,6 +4,7 @@ from sklearn import preprocessing
 
 trainFile = "../../data/codetest_train.txt"
 testFile = "../../data/codetest_test.txt"
+clfFolderBase = "../../classifier/"
 
 class PreProcessBase(object):   
 
@@ -11,6 +12,9 @@ class PreProcessBase(object):
         self.normalize = normalize
         self.generate_dummies = generate_dummies
         self.load()
+
+    def apply_pca():
+        pass
      
     def clean(self, df_train, df_test):
 
@@ -39,8 +43,7 @@ class PreProcessBase(object):
             self.X_test = np.hstack((test_nums, dummies.values))
         else:
             self.X_train = np.hstack((train_nums, df_cats_train.values))
-            self.X_test = np.hstack((test_nums, df_cats_test.values))
-        
+            self.X_test = np.hstack((test_nums, df_cats_test.values)) 
         
 
     def normalize_data(self, train, test):

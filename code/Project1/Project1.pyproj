@@ -25,6 +25,12 @@
     <Compile Include="save_classifier_and_params.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="_clf_LassoAndRidge.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_clf_LassoAndSVR.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="_clf_LassoRegression.py">
       <SubType>Code</SubType>
     </Compile>

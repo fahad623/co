@@ -2,13 +2,13 @@ from sklearn.externals import joblib
 import os
 import shutil
 from sklearn.metrics import mean_squared_error
+import pre_process
 
-clfFolderBase = "../../classifier/"
 
 
 def save(clf, X_train, Y_train, bp = None, bs = None):
 
-    pathClassifier = clfFolderBase + clf.__class__.__name__ + '/'
+    pathClassifier = pre_process.clfFolderBase + clf.__class__.__name__ + '/'
     if not os.path.exists(pathClassifier):
         os.makedirs(pathClassifier)
 

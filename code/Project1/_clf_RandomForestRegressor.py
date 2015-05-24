@@ -2,10 +2,10 @@ from sklearn.ensemble import RandomForestRegressor
 import numpy as np
 import cross_val
 import pre_process
-
+import save_classifier_and_params
 
 def make_best_classifier():
-    return RandomForestRegressor(n_estimators = 170)
+    return RandomForestRegressor(n_estimators = 180)
 
 def train_base_clf(pp_base):    
     clf = make_best_classifier()
