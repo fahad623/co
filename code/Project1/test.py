@@ -1,53 +1,47 @@
 import pandas as pd
 import numpy as np
-from sklearn.feature_extraction import DictVectorizer
-trainFile = "../../data/codetest_train_trunc.txt"
-#testFile = "../../data/codetest_test.txt"
-outFile = "../../data/codetest_train_out.csv"
 
 
-#df_train = pd.read_csv(trainFile, sep = '\t')
-#df_test= pd.read_csv(testFile, sep = '\t')
+from numpy.random import randn
 
 
-#print df_train.describe()
+print np.log2(0.5)
+df = pd.DataFrame({'Name' : ['ALEX', 'ALEX', 'ALEX', 'ALEX',
+                           'ALEX', 'bar', 'foo', 'foo'],
+                    'Sex' : ['M', 'F', 'M', 'F',
+                           'F', 'M', 'M', 'M'],
+                    'DOB' : [2001, 2002,2001, 2002,2001, 2002,2001, 2002,],
+                    'Count' : [2.1, 30.786989, 4.0, 2.0, 30.56565, 4.0,2.0, 90]})
 
-#from sklearn import preprocessing
-#import numpy as np
-#X = np.array([[ 1., np.nan,  2.],
-#              [ 2.,  0.,  0.],
-#              [ 0.,  1., -1.]])
-
-#scaler = preprocessing.StandardScaler().fit(X)
-#print scaler
-
-df_train = pd.read_csv(trainFile, sep='\t')
-#d = df.T.to_dict().values()
-#print d
-
-#vec = DictVectorizer()
-#x = vec.fit_transform(d)
-#print x.toarray()
-#print vec.get_feature_names()
+print df.ix[1]
+grouped = df.groupby(['Name'])
 
 
-#def add_dummies(indata):
-#    df_nums = indata.select_dtypes(include=['floating']).fillna(0.0)    
-#    df_cats = indata.select_dtypes(exclude=['floating'])
-#    dummies = pd.get_dummies(df_cats, dummy_na = True)
-#    outdata = pd.concat([df_nums, dummies], axis=1)
-#    return outdata
 
-#out = add_dummies(df_train)
-#out.to_csv(outFile, index = False) 
-print np.logspace(-5, -1, num=5)
+for name, group in grouped:
+    print(name)
+    print(group) 
 
-arr1 = np.array([[1.0, 2, 4], [3, 4, 6]])
+            
+def func(df):
+    
+    df_dob = df.groupby('DOB', as_index=False).aggregate({'Count' : np.sum})
 
-arr2 = np.array([1, 0.0, 0])
+    df_1980 = df_dob[df_dob['DOB'] == 2001]
 
-arr3 = arr1[:, arr2 != 0]
+    if not df_1980.empty:
+        count = float(df_1980.Count)
 
-print arr1
-print arr2
-print arr3
+
+
+    #print df_dob
+    #df_dob = df_dob.sort('DOB')  
+    
+    min_count = float(df_dob.iloc[0].Count)
+    max_count = float(df_dob.iloc[-1].Count) 
+    percent_change = 0.0
+    if (min_count != max_count):
+        percent_change = (max_count - min_count)*100/min_count
+    return pd.Series([percent_change, min_count, max_count], index=['percent_change', 'min_count', 'max_count'])
+
+print grouped.apply(func)

@@ -3,11 +3,13 @@ Project1 -
 How to run - 
 
 1. Please create a folder 'data' at the same level as code and copy the dataset to it
+2. The development environment is latest Anaconda distribution(with Python 2.7)
 2. Run '.py'
 
 
 Explanation of the model building process - 
 1. Separate the data into numerical and categorial variables
+2. For the numerical variables missing values were substituted by 0 since there are large number of axamples with missing data and we cannot just exclude them. If the meaning of the features is known, then we can use other techniques to impute the missing values
 2. Perform feature scaling on numerical variables
 3. Convert categorical variable into dummy/indicator variables        
 4. Then combine them again to get the final train, test set

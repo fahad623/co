@@ -1,5 +1,7 @@
 data/
 classifier/
+output/
+ipython/
 *.csv
 *.csv.gz
 *.suo

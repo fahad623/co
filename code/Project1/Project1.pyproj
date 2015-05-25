@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>2ba73215-6d85-42c3-ad5c-b9a393e29b9d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>_clf_RandomForestRegressor.py</StartupFile>
+    <StartupFile>test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="final_model.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="save_classifier_and_params.py">
       <SubType>Code</SubType>
     </Compile>
@@ -38,6 +41,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_clf_RidgeRegression.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_clf_SGDRegressor.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_clf_SVR.py">
