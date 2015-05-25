@@ -54,7 +54,6 @@ class PreProcessBase(object):
         if self.normalize:
             train_nums = self.normalize_data(train_nums)
             new_df  =pd.DataFrame(train_nums)
-            new_df.to_csv("../../data/out1.csv", index = False) 
 
         if (self.generate_dummies):
             dummies = pd.get_dummies(df_cats_train, dummy_na = True)

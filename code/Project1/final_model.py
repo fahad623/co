@@ -22,6 +22,7 @@ if __name__ == '__main__':
     if os.path.exists(pathClassifier):
         clf_stage1 = joblib.load(pathClassifier+'model.pkl')
     else:
+        os.makedirs(pathClassifier)
         clf_stage1 = _clf_LassoRegression.make_best_classifier()  #Best params selected before by CV
         clf_stage1.fit(X_train, Y_train)
         joblib.dump(clf_stage1, pathClassifier+'model.pkl')
@@ -38,6 +39,7 @@ if __name__ == '__main__':
     if os.path.exists(pathClassifier):
         clf_stage2 = joblib.load(pathClassifier+'model.pkl')
     else:
+        os.makedirs(pathClassifier)
         clf_stage2 = _clf_LassoAndSVR.make_best_classifier() #Best params selected before by CV
         clf_stage2.fit(X_train, Y_train)
         joblib.dump(clf_stage2, pathClassifier+'model.pkl')

@@ -4,7 +4,7 @@ How to run -
 
 1. Please copy the dataset to the 'data' folder
 2. The development environment is latest Anaconda distribution(with Python 2.7)
-3. Run 'final_model.py'
+3. Run 'code/Project1/final_model.py'
 4. Predictions are written to the 'output' folder
 
 
