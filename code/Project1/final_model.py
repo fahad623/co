@@ -3,10 +3,9 @@ import pandas as pd
 import pre_process
 from sklearn.externals import joblib
 import _clf_LassoRegression
-import _clf_LassoAndRidge
+import _clf_LassoAndSVR
 import os
 import shutil
-from sklearn.metrics import mean_squared_error
 
 if __name__ == '__main__':
 
@@ -35,17 +34,16 @@ if __name__ == '__main__':
     X_test = pp_base.X_test[:, clf_stage1.coef_ != 0]
 
     #Fit or load Stage2 classifier
-    pathClassifier = pre_process.clfFolderBase + 'Ridge/' 
+    pathClassifier = pre_process.clfFolderBase + 'SVR/' 
     if os.path.exists(pathClassifier):
         clf_stage2 = joblib.load(pathClassifier+'model.pkl')
     else:
-        clf_stage2 = _clf_LassoAndRidge.make_best_classifier() #Best params selected before by CV
+        clf_stage2 = _clf_LassoAndSVR.make_best_classifier() #Best params selected before by CV
         clf_stage2.fit(X_train, Y_train)
         joblib.dump(clf_stage2, pathClassifier+'model.pkl')
 
     #Predict on the test set and save the output
-    pred = clf_stage2.predict(X_train)
-    print mean_squared_error(Y_train, pred)
+    pred = clf_stage2.predict(X_test)
     out_df = pd.DataFrame(pred)
 
     if not os.path.exists(pre_process.outFolder):

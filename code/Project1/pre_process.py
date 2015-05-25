@@ -34,13 +34,11 @@ class PreProcessBase(object):
             self.X_test = np.hstack((test_nums, df_cats_test.values)) 
 
         del df_test
-
-        new_df  =pd.DataFrame(test_nums)
-        new_df.to_csv("../../data/out_test.csv", index = False) 
      
     def clean_train(self, df_train):
 
         #Separate the data into numerical and categorial variables
+        #Impute missing numerical values with the mean
         #Perform feature scaling on numerical variables
         #Convert categorical variable into dummy/indicator variables        
         #Then combine them again to get the final train set
@@ -63,8 +61,6 @@ class PreProcessBase(object):
             self.X_train = np.hstack((train_nums, dummies.values))
         else:
             self.X_train = np.hstack((train_nums, df_cats_train.values))
-        new_df  =pd.DataFrame(train_nums)
-        new_df.to_csv("../../data/out_train.csv", index = False) 
 
     def normalize_data(self, train):
         self.scaler = preprocessing.StandardScaler()

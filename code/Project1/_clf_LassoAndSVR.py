@@ -8,7 +8,7 @@ import save_classifier_and_params
 import _clf_LassoRegression
 
 def make_best_classifier():
-    return SVR(C = 0.1, gamma = 1e-5, kernel = 'linear')
+    return SVR(C = 1, gamma = 0.01, kernel = 'rbf')
 
 def train_base_clf(pp, X_train):
     clf = make_best_classifier()

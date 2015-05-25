@@ -5,7 +5,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>2ba73215-6d85-42c3-ad5c-b9a393e29b9d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>test.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -53,10 +54,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="pre_process.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="project1.py" />
-    <Compile Include="test.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="_clf_RandomForestRegressor.py">
